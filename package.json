@@ -1,0 +1,31 @@
+{
+  "name": "apigeedm",
+  "version": "0.0.1",
+  "description": "A tool that helps you to deploy multiple Apigee API Proxies at one go",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anil614sagar/apigee-deploy-multiple.git"
+  },
+  "keywords": [
+    "Apigee",
+    "Deploy",
+    "Multiple",
+    "Proxies"
+  ],
+  "author": "Anil Sagar <anil614sagar@gmail.com> (https://in.linkedin.com/in/anilsagar/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anil614sagar/apigee-deploy-multiple/issues"
+  },
+  "homepage": "https://github.com/anil614sagar/apigee-deploy-multiple#readme",
+  "dependencies": {
+    "apigeetool": "^0.6.3",
+    "async": "^1.5.0",
+    "commander": "^2.9.0",
+    "inquirer": "^0.11.0"
+  }
+}

@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+'use strict';
+
+var program = require('commander');
+var version = require('../lib/util/cli').version();
+var deploy = require('../lib/deploy');
+
+
+
+program
+  .version(version);
+
+program
+  .usage('<options>')
+  .option('-s, --source <file>', 'API Bundles Source location directory')
+  .option('-b, --baseuri <baseuri>', 'Apigee Edge EndPoint to Deploy')
+  .option('-o, --organization <organization>', 'Apigee Edge Organization to Deploy')
+  .option('-e, --environments <environments>', 'Apigee Edge Environment to Deploy')
+  .option('-v, --virtualhosts <virtualhosts>', 'Apigee Edge virtual hosts to Deploy')
+  .option('-u, --username <username>', 'Apigee Edge Username to Deploy')
+  .option('-p, --password <password>', 'Apigee Edge Password to Deploy')
+  .description('Deploy multiple proxies in one go..');
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ apigeedm --help');
+  console.log('    $ apigeedm -s /Users/Anil/Desktop/');
+  console.log('');
+});
+
+program.parse(process.argv);
+
+var options = {};
+options.source = program.source;
+options.baseuri = program.baseuri;
+options.organization = program.organization;
+options.environments = program.environments;
+options.virtualhosts = program.virtualhosts;
+options.username = program.username;
+options.password = program.password;
+
+deploy.deployProxies(options, function(err, reply) {
+  if(err) {
+    console.log(err);
+  }
+  else {
+    //nothing for now..
+  }
+});
